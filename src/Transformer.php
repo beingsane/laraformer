@@ -27,7 +27,7 @@ class Transformer
         return $content;
     }
 
-    public function transformObjects($toTransform)
+    private function transformObjects($toTransform)
     {
         $transformed = [];
         foreach ($toTransform as $key => $item) {
@@ -37,12 +37,12 @@ class Transformer
         return $transformed;
     }
 
-    public function isTransformable($item)
+    private function isTransformable($item)
     {
         return is_object($item) && method_exists($item, 'transform');
     }
 
-    public function getPaginationMeta($paginator)
+    private function getPaginationMeta($paginator)
     {
         return [
             'total'          => $paginator->total(),
@@ -54,5 +54,33 @@ class Transformer
             'has_pages'      => $paginator->hasPages(),
             'has_more_pages' => $paginator->hasMorePages(),
         ];
+    }
+
+    public function forceTransform($content, $callback)
+    {
+        $transformedData = [];
+
+        // If it is an iterateable content
+        if (is_array($content) || $content instanceof Collection) {
+            $transformedData = $this->callbackTransform($content, $callback);
+        } else if (is_object($content)) { // In case of single object
+            $transformedData = $callback($content);
+        } else if ($content instanceof LengthAwarePaginator) { // In case it is paginated data
+            $transformedData         = $this->getPaginationMeta($content);
+            $transformedData['data'] = $this->callbackTransform($content, $callback);
+        }
+
+        return $transformedData;
+    }
+
+    private function callbackTransform($content, $callback)
+    {
+        $transformedData = [];
+
+        foreach ($content as $key => $item) {
+            $transformedData[$key] = $callback($item);
+        }
+
+        return $transformedData;
     }
 }
