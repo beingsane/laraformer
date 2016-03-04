@@ -11,6 +11,6 @@ class Transformer extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'transformer';
+        return 'KamranAhmed\LaraFormer\Transformer';
     }
 }

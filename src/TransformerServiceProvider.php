@@ -31,7 +31,7 @@ class TransformerServiceProvder extends ServiceProvider
     public function register()
     {
         // Register 'laraformer' instance container to our UnderlyingClass object
-        $this->app['laraformer'] = $this->app->share(function ($app) {
+        $this->app['KamranAhmed\LaraFormer\Transformer'] = $this->app->share(function ($app) {
             return new Transformer();
         });
 
