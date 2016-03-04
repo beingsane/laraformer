@@ -1,4 +1,4 @@
-<?php namespace KamranAhmed\LaraFormer;
+<?php namespace KamranAhmed\Laraformer;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;

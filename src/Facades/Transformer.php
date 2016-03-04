@@ -1,4 +1,4 @@
-<?php namespace KamranAhmed\LaraFormer\Facades;
+<?php namespace KamranAhmed\Laraformer\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -11,6 +11,6 @@ class Transformer extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'KamranAhmed\LaraFormer\Transformer';
+        return 'KamranAhmed\Laraformer\Transformer';
     }
 }

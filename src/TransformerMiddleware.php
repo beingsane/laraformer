@@ -1,4 +1,4 @@
-<?php namespace KamranAhmed\LaraFormer;
+<?php namespace KamranAhmed\Laraformer;
 
 use Closure;
 

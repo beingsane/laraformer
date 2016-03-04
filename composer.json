@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "KamranAhmed\\LaraFormer\\": "src/"
+      "KamranAhmed\\Laraformer\\": "src/"
     }
   },
   "minimum-stability": "stable"

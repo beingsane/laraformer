@@ -1,4 +1,4 @@
-<?php namespace KamranAhmed\LaraFormer;
+<?php namespace KamranAhmed\Laraformer;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
@@ -31,14 +31,14 @@ class TransformerServiceProvder extends ServiceProvider
     public function register()
     {
         // Register 'laraformer' instance container to our UnderlyingClass object
-        $this->app['KamranAhmed\LaraFormer\Transformer'] = $this->app->share(function ($app) {
+        $this->app['KamranAhmed\Laraformer\Transformer'] = $this->app->share(function ($app) {
             return new Transformer();
         });
 
         // So one doesn't need to add an Alias in app/config/app.php
         $this->app->booting(function () {
             $loader = AliasLoader::getInstance();
-            $loader->alias('LaraFormer', 'KamranAhmed\LaraFormer\Facades\Transformer');
+            $loader->alias('Laraformer', 'KamranAhmed\Laraformer\Facades\Transformer');
         });
     }
 }
