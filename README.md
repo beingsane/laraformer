@@ -1,4 +1,4 @@
-# Laraformer - Easily introduce a transformation layer for your data
+# Laraformer
 
 > Laraformer is a laravel 5.* package that lets you easily introduce a transformation layer for your data.
 
