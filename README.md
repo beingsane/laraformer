@@ -148,7 +148,7 @@ Not only models, but you can also use laraformer to transform any kind of datase
  
  For example:
 
-```
+```php
 // Transforming using callback function
 return Laraformer::forceTransform($dataset, function ($item) {
     return [
