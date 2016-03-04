@@ -141,9 +141,15 @@ Also note that you still have to specify the `transform` method in the model.
 
 # Transforming any Dataset
 
-Not only models, but you can also use laraformer to transform any kind of dataset whether it some data from an external source, some dataset that you magically generated etc. In order to do that, all you have to do is provide the transformation logic through a callback. For example:
+Not only models, but you can also use laraformer to transform any kind of dataset whether it some data from an external source, some dataset that you magically generated etc. In order to do that, you can do one of the following.
+ 
+ - Pass an object of a transformer class having a `transform` method
+ - Pass a callback function 
+ 
+ For example:
 
 ```
+// Transforming using callback function
 return Laraformer::forceTransform($dataset, function ($item) {
     return [
         'name' => $item['name'],
@@ -154,6 +160,10 @@ return Laraformer::forceTransform($dataset, function ($item) {
         'profile_design' => json_decode($item['design_options'], true)
     ];
 })
+
+// Transforming using Transformer class object
+$userTransformer = new UserTransformer;
+return Laraformer::forceTransform($dataset, $userTransformer)
 ```
 
 # Contributing
