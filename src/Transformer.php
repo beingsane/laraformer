@@ -3,6 +3,13 @@
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
+/**
+ * Class Transformer
+ *
+ * Assists in transforming models or custom datasets
+ *
+ * @package KamranAhmed\Laraformer
+ */
 class Transformer
 {
     public function __construct()
@@ -10,6 +17,12 @@ class Transformer
 
     }
 
+    /**
+     * Transforms the classes having transform method
+     *
+     * @param $content
+     * @return array
+     */
     public function transformModel($content)
     {
         // In case of an array or collection
@@ -27,6 +40,12 @@ class Transformer
         return $content;
     }
 
+    /**
+     * Transforms an array of objects using the objects transform method
+     *
+     * @param $toTransform
+     * @return array
+     */
     private function transformObjects($toTransform)
     {
         $transformed = [];
@@ -37,11 +56,24 @@ class Transformer
         return $transformed;
     }
 
+    /**
+     * Checks whether the object is transformable or not
+     *
+     * @param $item
+     * @return bool
+     */
     private function isTransformable($item)
     {
         return is_object($item) && method_exists($item, 'transform');
     }
 
+    /**
+     * Gets the pagination meta data. Assumes that a paginator
+     * instance is passed \Illuminate\Pagination\LengthAwarePaginator
+     *
+     * @param $paginator
+     * @return array
+     */
     private function getPaginationMeta($paginator)
     {
         return [
@@ -56,6 +88,13 @@ class Transformer
         ];
     }
 
+    /**
+     * To transform a custom dataset by providing the callback
+     *
+     * @param $content
+     * @param $callback
+     * @return array
+     */
     public function forceTransform($content, $callback)
     {
         $transformedData = [];
@@ -73,10 +112,22 @@ class Transformer
         return $transformedData;
     }
 
+    /**
+     * Calls the transformation callback on each item of the dataset
+     *
+     * @param $content
+     * @param $callback
+     * @return array
+     */
     private function callbackTransform($content, $callback)
     {
-        $transformedData = [];
+        // If it is not a dataset and just a
+        // single array. Need to improve
+        if (empty($content[0])) {
+            $content = [$content];
+        }
 
+        $transformedData = [];
         foreach ($content as $key => $item) {
             $transformedData[$key] = $callback($item);
         }
