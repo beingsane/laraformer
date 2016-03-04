@@ -102,7 +102,7 @@ class User extends Eloquent
 }
 ```
 
-## a) Automatically transform the response
+### a) Automatically transform the response
 
 For the automatic transformation, all you have to do is return the models directly i.e. with the model object, collection of models or a paginated models in the response. For example, the controller may look like below:
 
@@ -127,7 +127,7 @@ class UserController extends Controller
 }
 ```
 
-## b) Manual transformation
+### b) Manual transformation
 
 If you would like to transform your model data for internal use, you can also do it. For that, you can either do it using a provided facade called `\KamranAhmed\Laraformer\Facades\Transformer` by using an alias called `Laraformer` i.e.
 
@@ -139,7 +139,7 @@ $transformedUser = Laraformer::transformModel($user);
 ```
 Also note that you still have to specify the `transform` method in the model.
 
-# Transforming any Dataset
+## Transforming any Dataset
 
 Not only models, but you can also use laraformer to transform any kind of dataset whether it some data from an external source, some dataset that you magically generated etc. In order to do that, you can do one of the following.
  
@@ -166,7 +166,7 @@ $userTransformer = new UserTransformer;
 return Laraformer::forceTransform($dataset, $userTransformer)
 ```
 
-# Contributing
+## Contributing
 - Feel free to add some new functionality, polish some existing functionality etc and open up a pull request explaining what you did.
 - Report any issues in the [issues section](https://github.com/kamranahmedse/laraformer/issues)
 - Also you can reach me directly at kamranahmed.se@gmail.com with any feedback
