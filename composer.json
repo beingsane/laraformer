@@ -1,24 +1,31 @@
 {
-    "name": "kamranahmedse/laraformer",
-    "description": "A Laravel package to help you in implementing the transformers logic in your applications with ease",
-    "keywords": ["kamranahmedse", "laravel-transformer", "middleware", "api", "transformers", "api-transformers"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Kamran Ahmed",
-            "email": "kamranahmed.se@gmail.com",
-            "homepage": "https://kamranahmed.info",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php" : ">=5.4.0",
-        "laravel/framework": "^5.1.11"
-    },
-    "autoload": {
-        "psr-4": {
-            "KamranAhmed\\LaraFormer\\": "src/"
-        }
-    },
-    "minimum-stability": "stable"
+  "name": "kamranahmedse/laraformer",
+  "description": "A Laravel package to help you in implementing the transformers logic in your applications with ease",
+  "keywords": [
+    "kamranahmedse",
+    "laravel-transformer",
+    "middleware",
+    "api",
+    "transformers",
+    "api-transformers"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kamran Ahmed",
+      "email": "kamranahmed.se@gmail.com",
+      "homepage": "https://kamranahmed.info",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "laravel/framework": "^5.1.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "KamranAhmed\\LaraFormer\\": "src/"
+    }
+  },
+  "minimum-stability": "stable"
 }

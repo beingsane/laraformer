@@ -1,13 +1,12 @@
-<?php namespace KamranAhmed\Middlewares\LaraFormer;
+<?php namespace KamranAhmed\LaraFormer;
 
 use Closure;
-use KamranAhmed\LaraFormer\Transformer;
 
 /**
  * Class TransformerMiddleware
  *
  * Middleware that tries to automatically transform the data provided
- * that the direct model
+ * that is returned in the form of direct model
  */
 class TransformerMiddleware
 {
