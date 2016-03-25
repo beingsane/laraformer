@@ -44,7 +44,7 @@ You can transform your models in one of the two ways:
 Let me explain the usage with an example.
 
 ### Example
-**Sample Table/Cllection** Lets say that we have a `users` table/collection with the associated model called `User`. The table/collection looks like following
+**Sample Table/Collection** Lets say that we have a `users` table/collection with the associated model called `User`. The table/collection looks like following
 
 |Column|Type|Sample Data|
 |---|---|---|
